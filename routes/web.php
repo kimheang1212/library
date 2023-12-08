@@ -56,3 +56,5 @@ Route::get('/list',[FrontendController::class,'list']);
 Route::get('/show/{id}',[FrontendController::class,'show']);
 Route::get('/frontend/{category?}', [FrontendController::class,'getByCategory']);
 Route::get('/search', [FrontendController::class,'getBySearch']);
+Route::get('/about',[FrontendController::class,'about']);
+Route::get('/contact',[FrontendController::class,'contact']);
