@@ -15,6 +15,14 @@ class FrontendController extends Controller
     {
         return view("frontend.index");
     }
+    public function about()
+    {
+        return view("frontend.about");
+    }
+    public function contact()
+    {
+        return view("frontend.contact");
+    }
     public function list()
     {
         $categories = Category::all();
@@ -52,37 +60,5 @@ class FrontendController extends Controller
                 ->with('keyword', $keyword)
                 ->with('categories', $categories);
         } 
-    }
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        $categories = Category::all();
-        return view('frontend.show')->with('product', Product::find($id))->with('categories',$categories);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
