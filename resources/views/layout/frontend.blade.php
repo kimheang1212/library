@@ -61,7 +61,7 @@
           <li><a href="{{url('/list')}}">Product</a></li>
           <li><a href="{{url('/contact')}}">Contact Form</a></li>
           </li>
-          <li><a a class="get-a-quote" href="#">Signin</a></li>
+          <li><a a class="get-a-quote" href="{{url('/login')}}">Signin</a></li>
         </ul>
       </nav><!-- .navbar -->
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,11 @@ Route::get('/frontend/{category?}', [FrontendController::class,'getByCategory'])
 Route::get('/search', [FrontendController::class,'getBySearch']);
 Route::get('/about',[FrontendController::class,'about']);
 Route::get('/contact',[FrontendController::class,'contact']);
+
+// login and register for frontend
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/post-login', [AuthController::class, 'postLogin'])->name('login.post');
+Route::get('/registration', [AuthController::class, 'registration'])->name('register');
+Route::post('/post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+Route::get('/dashboard', [AuthController::class, 'dashboard']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
