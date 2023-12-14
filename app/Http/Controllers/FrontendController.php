@@ -13,7 +13,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view("frontend.index");
+        $categories = Category::all();
+        $products = Product::orderBy('created_at','DESC')->paginate(3);
+    	return view('frontend.list')->with('products',$products)->with('categories', $categories);
     }
     public function about()
     {
@@ -28,6 +30,11 @@ class FrontendController extends Controller
         $categories = Category::all();
         $products = Product::orderBy('created_at','DESC')->paginate(3);
     	return view('frontend.list')->with('products',$products)->with('categories', $categories);
+    }
+    public function show(string $id)
+    {
+        $categories = Category::all();
+        return view('frontend.show')->with('product', Product::find($id))->with('categories',$categories);
     }
     /**
      * Show the form for creating a new resource.

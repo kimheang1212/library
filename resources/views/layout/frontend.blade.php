@@ -12,6 +12,7 @@
   <!-- Favicons -->
   <!-- <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +28,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="{{asset('css/main.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Logis
@@ -57,7 +58,7 @@
           <li><a href="{{url('/')}}" class="active">Home</a></li>
           <li><a href="{{url('/about')}}">About</a></li>
           <li><a href="#">Category</a></li>
-          <li><a href="#">Product</a></li>
+          <li><a href="{{url('/list')}}">Product</a></li>
           <li><a href="{{url('/contact')}}">Contact Form</a></li>
           </li>
           <li><a a class="get-a-quote" href="#">Signin</a></li>
@@ -74,39 +75,45 @@
       <div class="row gy-4 d-flex justify-content-between">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h2 data-aos="fade-up">library is an archive of longings</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p>
+          {{-- <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p> --}}
 
           <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-            <input type="text" class="form-control" placeholder="Search">
-            <button type="submit" class="btn btn-primary">Search</button>
+            {{ Form::open(array('url'=>'/search','method'=>'get')) }}
+            <div class="input-group">
+                {{ Form::text('keyword',$keyword ?? '', array('placeholder'=>'Search', 'class'=>'form-control')) }}
+                <span class="input-group-btn">
+                    {{ Form::submit('search',array('class'=>'btn btn-primary')) }}
+                </span>
+            </div>
+            {{ Form::close() }}
           </form>
 
           <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="4" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Books</p>
               </div>
             </div><!-- End Stats Item -->
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="4" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
                 <p>History</p>
               </div>
             </div><!-- End Stats Item -->
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="4.5" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
                 <p>English</p>
               </div>
             </div><!-- End Stats Item -->
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="4" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Khmer</p>
               </div>
             </div><!-- End Stats Item -->

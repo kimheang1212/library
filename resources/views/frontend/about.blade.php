@@ -27,7 +27,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="{{asset('css/main.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Logis
@@ -56,11 +56,11 @@
       <ul>
           <li><a href="{{url('/')}}" >Home</a></li>
           <li><a href="{{url('/about')}}" class="active">About</a></li>
-          <li><a href="#">Category</a></li>
-          <li><a href="#">Product</a></li>
+          <li><a href="{{url('/frontend')}}">Category</a></li>
+          <li><a href="{{url('/list')}}">Product</a></li>
           <li><a href="{{url('/contact')}}">Contact Form</a></li>
           </li>
-          <li><a a class="get-a-quote" href="#">Signin</a></li>
+          <li><a class="get-a-quote" href="#">Signin</a></li>
         </ul>
       </nav><!-- .navbar -->
 
